@@ -6,12 +6,12 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:32:53 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/10 15:57:13 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/11 00:35:32 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "contact.class.hpp"
+#include "Contact.class.hpp"
 
 # define EXIT	"EXIT"
 # define ADD	"ADD"

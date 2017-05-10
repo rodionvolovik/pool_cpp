@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.cpp                                  :+:      :+:    :+:   */
+/*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:40:27 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/10 15:23:07 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/11 00:35:20 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iomanip>
 #include <climits>
-#include "contact.class.hpp"
+#include "Contact.class.hpp"
 
 		Contact::Contact(void) {
 	return;
