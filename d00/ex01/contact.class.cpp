@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:40:27 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/10 13:48:52 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:23:07 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void		Contact::_maxstrlen(std::string str) {
 	return;
 }
 
-static int	getNbContact(void) {
+int			Contact::getNbContact(void) {
 	return Contact::_nbcontact;
 }
 

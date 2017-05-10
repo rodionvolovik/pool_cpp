@@ -1,6 +1,6 @@
 NAME = phonebook
 
-SRC = phonebook.cpp
+SRC = contact.class.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,7 +10,7 @@ all: $(OBJ)
 	clang++ -Wall -Wextra -Werror $(OBJ) -o $(NAME)
 
 %.o : ./%.cpp
-	clang++ -Wall -Wextra -Werror -o $@ -c $<
+	clang++ -Wall -Wextra -Werror -o $@ -c $< -I./
 
 clean:
 	/bin/rm -f $(OBJ)
