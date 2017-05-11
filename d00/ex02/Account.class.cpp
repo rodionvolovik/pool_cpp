@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 00:37:05 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/11 01:35:26 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/11 17:10:40 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,42 @@ void	Account::displayAccountsInfos(void)
 	return ;
 }
 
-// void	Account::makeDeposit(int deposit) {
-//
-// }
-// bool	Account::makeWithdrawal(int withdrawal);
-// int		Account::checkAmount(void) const;
+void	Account::makeDeposit(int deposit) {
+	Account::_displayTimestamp();
+	Account::_totalAmount += deposit;
+	Account::_totalNbDeposits++;
+	std::cout << "index:" << this->_accountIndex;
+	std::cout << ";p_amount:" << this->_amount;
+	this->_amount += deposit;
+	this->_nbDeposits++;
+	std::cout << ";deposit:" << deposit;
+	std::cout << ";amount:" << this->_amount;
+	std::cout << ";nb_deposits:" << this->_nbDeposits;
+	std::cout << std::endl;
+}
+
+bool	Account::makeWithdrawal(int withdrawal) {
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex;
+	std::cout << ";p_amount:" << this->_amount;
+	if (withdrawal <= this->_amount) {
+		Account::_totalAmount -= withdrawal;
+		Account::_totalNbWithdrawals++;
+		this->_nbWithdrawals++;
+		std::cout << ";withdrawal:" << withdrawal;
+		this->_amount -= withdrawal;
+		std::cout << ";amount:" << this->_amount;
+		std::cout << ";nb_withdrawals:" << this->_nbWithdrawals;
+		std::cout << std::endl;
+	}
+	else {
+		std::cout << ";withdrawal:refused" << '\n';
+		return false;
+	}
+	return true;
+}
+// int		Account::checkAmount(void) const; - what is that for????
+
 void	Account::displayStatus(void) const {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex
