@@ -33,12 +33,10 @@ Zombie	*ZombieEvent::newZombie(std::string name) {
 }
 
 Zombie	*ZombieEvent::randomChump(void) {
-	int		range = 4;
 	int		random_val;
-
 	std::string	random[] = {"Reeker", "Spasm Zombie", "Bleeder", "Bloomer", "Sliver"};
+	
 	std::srand(unsigned(time(0)));
-	random_val = (int)(range * (std::rand() / (RAND_MAX + 1.0)));
-	std::cout << "Random val " << random_val << std::endl;
+	random_val = (int)(4 * (std::rand() / (RAND_MAX + 1.0)));
 	return (new Zombie(random[random_val], this->_zombieType));
 }
