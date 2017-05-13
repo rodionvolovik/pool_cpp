@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/12 20:20:14 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/13 15:28:50 by rvolovik         ###   ########.fr       */
+/*   Created: 2017/05/13 15:08:15 by rvolovik          #+#    #+#             */
+/*   Updated: 2017/05/13 15:29:33 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
-#include <cmath>
+#ifndef __ZOMBIE_HORDE_HPP
+# define __ZOMBIE_HORDE_HPP
 
-int		main(void) {
+# include "Zombie.hpp"
 
-	Zombie	*zomb = new Zombie();
-	zomb->announce();
+class ZombieHorde {
+private:
+	/* data */
 
-	delete zomb;
+public:
+	ZombieHorde (int N);
+	~ZombieHorde ();
+};
 
-	ZombieEvent zombEvent = ZombieEvent();
-	zombEvent.setZombieType("angry");
-
-	zomb = zombEvent.newZombie("Zomb");
-
-	zomb->announce();
-
-	delete zomb;
-
-	zomb = zombEvent.randomChump();
-	zomb->announce();
-
-	delete zomb;
-
-	return 0;
-}
+#endif

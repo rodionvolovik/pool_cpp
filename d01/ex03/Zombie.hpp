@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/12 20:20:14 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/13 15:28:50 by rvolovik         ###   ########.fr       */
+/*   Created: 2017/05/12 19:16:00 by rvolovik          #+#    #+#             */
+/*   Updated: 2017/05/12 20:45:53 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
-#include <cmath>
+#ifndef __ZOMBIE_HPP
+# define __ZOMBIE_HPP
 
-int		main(void) {
+# include <iostream>
 
-	Zombie	*zomb = new Zombie();
-	zomb->announce();
+class Zombie {
+private:
+	std::string	_name;
+	std::string	_type;
 
-	delete zomb;
+public:
+	Zombie (void);
+	Zombie(std::string name, std::string type);
+	~Zombie (void);
 
-	ZombieEvent zombEvent = ZombieEvent();
-	zombEvent.setZombieType("angry");
+	void	announce(void);
+};
 
-	zomb = zombEvent.newZombie("Zomb");
-
-	zomb->announce();
-
-	delete zomb;
-
-	zomb = zombEvent.randomChump();
-	zomb->announce();
-
-	delete zomb;
-
-	return 0;
-}
+#endif
