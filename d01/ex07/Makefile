@@ -1,13 +1,15 @@
 NAME = replace
 
-SRC =
+SRC = Filemanip.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
+
+INC = -I./
 
 .phony: all clean fclean re
 
 all: $(OBJ)
-	clang++ -Wall -Wextra -Werror $(OBJ) -o $(NAME)
+	clang++ -Wall -Wextra -Werror $(INC) $(OBJ) -o $(NAME)
 
 %.o : ./%.cpp
 	clang++ -Wall -Wextra -Werror -o $@ -c $<
