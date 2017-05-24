@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 21:31:10 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/23 21:55:46 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/24 13:43:40 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <sstream>
 
 class Logger {
 	typedef void	(Logger::*LogSwitch)(const std::string&);

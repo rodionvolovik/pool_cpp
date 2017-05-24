@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 21:30:59 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/23 21:55:10 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/24 13:47:26 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,16 @@ void	Logger::logToFile(std::string const &string) {
 }
 
 std::string	Logger::makeLogEntry(std::string const &string) {
-	return string;
+	std::stringstream	ss;
+	time_t				timestamp = time(0);
+	struct tm			*tstruct = localtime(&timestamp);
+	char				buf[18];
+
+	strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", tstruct);
+	ss << buf << '\t' << string;
+	return ss.str();
 }
 
 void	Logger::log(std::string const &dest, std::string const &message) {
-	(this->*_logTo[dest[0] % 3])(message);
+	(this->*_logTo[dest[0] % 3 - 1])(message);
 }
