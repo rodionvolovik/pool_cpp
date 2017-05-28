@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 16:16:33 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/24 16:56:29 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/28 15:44:27 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int		main(void) {
 	Fixed	c;
 
 	c = a;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
 	return 0;
 }
