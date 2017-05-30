@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 01:18:49 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/31 01:32:56 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/31 01:44:10 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ FragTrap::FragTrap(std::string name) {
 	this->_level = 1;
 	this->_armor = 5;
 	this->_name = name;
-	std::cout << "A FragTrap unit " << this->_name << " is ready for battle" << '\n';
+	std::cout << "A FragTrap unit "
+				<< CNAME
+				<< this->_name
+				<< UNCOLOR << " is ready for battle" << '\n';
 	return ;
 }
 
 FragTrap::~FragTrap(void) {
-	std::cout << "A FragTrap unit " << this->_name << " retired" << '\n';
+	std::cout << "A FragTrap unit "
+				<< CNAME << this->_name 
+				<< UNCOLOR << " retired" << '\n';
 	return ;
 }

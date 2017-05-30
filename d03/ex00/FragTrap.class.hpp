@@ -6,12 +6,15 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 01:15:21 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/05/31 01:29:56 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/05/31 01:43:28 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_CLASS_HPP
 #define FRAGTRAP_CLASS_HPP
+
+#define CNAME "\e[040;036m"
+#define UNCOLOR "\e[0;0m"
 
 #include <iostream>
 
