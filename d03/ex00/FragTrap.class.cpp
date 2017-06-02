@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 01:18:49 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/01 00:08:06 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/02 01:19:54 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ int 	FragTrap::_melee_damage = 30;
 int 	FragTrap::_ranged_damage = 20;
 
 FragTrap::FragTrap(std::string name) {
+	_f_attack[0] = &FragTrap::rangedAttack;
+	_f_attack[1] = &FragTrap::meleeAttack;
+	_f_attack[2] = &FragTrap::laserInferno;
+	_f_attack[3] = &FragTrap::clapInTheBox;
+	_f_attack[4] = &FragTrap::minionTrap;
+
 	this->_hp = 100;
 	this->_energy = 100;
 	this->_level = 1;
@@ -113,8 +119,80 @@ void	FragTrap::addEnergy(unsigned int amount) {
 }
 
 void	FragTrap::vaulthunter_dot_exe(const std::string &target) {
-	//generate a number
+	std::cout << this->_energy << '\n';
+	if (this->_hp == 0)
+		this->_dead(this->_name);
+	else if (this->_energy - ENERGY < 0)
+		this->_noenergy(this->_name);
+	else {
+		std::srand(unsigned(time(0)));
+		this->_energy -= ENERGY;
+		if (this->_energy < 0)
+			this->_energy = 0;
+		int		random = (int)(5 * (std::rand() / (RAND_MAX + 1.0)));
+		(this->*_f_attack[random])(target);
+	}
 }
+
+void	FragTrap::laserInferno(const std::string &target){
+	std::srand(unsigned(time(0)));
+	int		damage = (int)(100 * (std::rand() / (RAND_MAX + 1.0)));
+	if (this->_hp == 0) {
+		std::cout << "LaserInferno is unavailable:( ";
+		this->_dead(this->_name);
+	}
+	else if (this->_energy == 0) {
+		this->_noenergy(this->_name);
+	}
+	else {
+		std::cout << "FR4G-TP " << CNAME << this->_name << UNCOLOR
+					<< " makes laser inferno to "
+					<< target << ", causing "
+					<< damage << " points of damage !"
+					<< std::endl;
+	}
+	return ;
+}
+
+void	FragTrap::clapInTheBox(const std::string &target){
+	std::srand(unsigned(time(0)));
+	int		damage = (int)(100 * (std::rand() / (RAND_MAX + 1.0)));
+	if (this->_hp == 0) {
+		std::cout << "clapInTheBox is unavailable:( ";
+		this->_dead(this->_name);
+	}
+	else if (this->_energy == 0) {
+		this->_noenergy(this->_name);
+	}
+	else {
+		std::cout << "FR4G-TP " << CNAME << this->_name << UNCOLOR
+					<< " claps InTheBox "
+					<< target << ", causing "
+					<< damage << " points of damage !"
+					<< std::endl;
+	}
+	return ;
+}
+
+void	FragTrap::minionTrap(const std::string &target){
+	std::srand(unsigned(time(0)));
+	int		damage = (int)(100 * (std::rand() / (RAND_MAX + 1.0)));
+	if (this->_hp == 0) {
+		std::cout << "minionTrap is unavailable:( ";
+		this->_dead(this->_name);
+	}
+	else if (this->_energy == 0) {
+		this->_noenergy(this->_name);
+	}
+	else {
+		std::cout << "FR4G-TP " << CNAME << this->_name << UNCOLOR
+					<< " attacks "	<< target << "with minionTrap, causing "
+					<< damage << " points of damage !"
+					<< std::endl;
+	}
+	return ;
+}
+
 
 void	FragTrap::_dead(std::string name) {
 	std::cout << name << " is already looking on you from heaven." << std::endl;
@@ -122,7 +200,7 @@ void	FragTrap::_dead(std::string name) {
 }
 
 void	FragTrap::_noenergy(std::string name) {
-	std::cout << name << " has no energy. Use <.addEnergy()> to restore some."
+	std::cout << name << " has not enough energy. Use <.addEnergy()> to restore some."
 				<< std::endl;
 	return ;
 }

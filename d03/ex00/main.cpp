@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 01:24:42 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/01 00:04:46 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/02 01:17:27 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int		main(void) {
 	tank.takeDamage(75);
 	tank.rangedAttack("wall");
 	tank.beRepaired(20);
-	tank.rangedAttack("wall");
 	tank.addEnergy(100);
+	tank.vaulthunter_dot_exe("Xiomoto");
+	tank.vaulthunter_dot_exe("Xiomoto");
+	tank.vaulthunter_dot_exe("Xiomoto");
+	tank.vaulthunter_dot_exe("Xiomoto");
+	tank.vaulthunter_dot_exe("Xiomoto");
 	return 0;
 }
