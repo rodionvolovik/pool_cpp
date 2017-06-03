@@ -13,6 +13,7 @@ class Peon : public Victim {
 
 	public:
 		Peon(string name);
+		Peon(const Peon &obj);
 		~Peon(void);
 		void	getPolymorphed(void) const;
 		string	nametoupper(void) const; 

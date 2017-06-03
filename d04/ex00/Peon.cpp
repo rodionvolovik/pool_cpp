@@ -5,6 +5,11 @@ Peon::Peon(string name) : Victim(name), _name(name) {
 	return ;
 }
 
+Peon::Peon(const Peon &obj) : Victim(obj._name), _name(obj._name) {
+	cout << "Zog zog." << endl;
+	return ;
+}
+
 Peon::~Peon(void) {
 	cout << "Bleuark..." << endl;
 	return ;

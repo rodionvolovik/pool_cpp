@@ -12,6 +12,7 @@ class Victim {
 
 	public:
 		Victim(string name);
+		Victim(const Victim &other);
 		~Victim(void);
 		void	getPolymorphed(void) const;
 		string	nametoupper(void) const;

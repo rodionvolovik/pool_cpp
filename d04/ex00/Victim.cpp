@@ -12,6 +12,11 @@ Victim::Victim(string name) : _name(name) {
 	return ;
 }
 
+Victim::Victim(const Victim &object) : _name(object._name) {
+	cout << "Some random victim called " << nametoupper() << " just popped!" << endl;
+	return ;
+}
+
 Victim::~Victim(void) {
 	cout << "Victim " << nametoupper() << " just died for no aparent reason!" << endl;
 	return ;
