@@ -27,6 +27,6 @@ RadScorpion::~RadScorpion(void) {
 }
 
 void	RadScorpion::takeDamage(int damage) {
-	if (_hp -= damage + 3)
+	if (_hp -= damage - 3)
 		_hp = 0;
 }
