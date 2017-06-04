@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:45:03 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 02:52:19 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:18:30 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "Enemy.hpp"
 
 using namespace std;
+
+# define ARMOR	3
 
 class SuperMutant : public Enemy {
 private:

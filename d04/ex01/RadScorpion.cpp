@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:45:05 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 04:12:56 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:16:53 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ RadScorpion::~RadScorpion(void) {
 }
 
 void	RadScorpion::takeDamage(int damage) {
-	if ((_hp -= damage) < 0)
-		_hp = 0;
-	cout << _hp << endl;
+	if (getHP() - damage < 0)
+		setHP(0);
+	else
+		setHP(getHP() - damage);
 }

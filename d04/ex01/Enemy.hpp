@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:35:14 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 02:39:30 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:33:25 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ private:
 public:
 	Enemy(int hp, string const & type);
 	Enemy(const Enemy &obj);
-	~Enemy(void);
+	// ~Enemy(void);
+	virtual ~Enemy(void) = 0;
 	string const		getType(void) const;
 	int					getHP(void) const;
+	void				setHP(int hp);
 	virtual void		takeDamage(int) = 0;
 };
 

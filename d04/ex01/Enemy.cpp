@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:35:35 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 02:58:41 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:34:19 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ string const	Enemy::getType(void) const {
 
 int				Enemy::getHP(void) const {
 	return _hp;
+}
+
+void			Enemy::setHP(int hp) {
+	_hp = hp;
 }
 
 ostream	&operator<<(ostream &os, const Enemy &obj) {

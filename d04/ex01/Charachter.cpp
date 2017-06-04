@@ -6,13 +6,14 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 03:24:11 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 04:08:08 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:35:13 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Charachter.hpp"
 
 Character::Character(string const &name) : _name(name), _ap(40) {
+	_weapon = NULL;
 	return ;
 }
 
@@ -41,7 +42,7 @@ void	Character::attack(Enemy *enemy) {
 		enemy->takeDamage(_weapon->getDamage());
 		cout << _name << " attacks "<< enemy->getType() <<" with a " << _weapon->getName() << endl;
 		_weapon->attack();
-		if (enemy->getHP() <= 0)
+		if (enemy->getHP() == 0)
 			enemy->~Enemy();
 	}
 	return ;
@@ -66,7 +67,7 @@ ostream	&operator<<(ostream &os, const Character &obj) {
 	if (obj.getWeapon() != "")
 		os << " and wields a " << obj.getWeapon() << endl;
 	else
-		os << " and is unarmed." << endl;
+		os << " and is unarmed" << endl;
 	return os;
 }
 
