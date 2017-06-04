@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:45:05 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 02:56:37 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 04:03:03 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ SuperMutant::~SuperMutant(void) {
 }
 
 void	SuperMutant::takeDamage(int damage) {
-	if (_hp -= damage - 3)
+	if ((_hp -= damage - 3) < 0)
 		_hp = 0;
 }
