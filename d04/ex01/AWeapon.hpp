@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 02:02:37 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 02:38:38 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/04 16:38:11 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 public:
 	AWeapon(string const &name, int apcost, int damage);
 	AWeapon(const AWeapon &obj);
-	~AWeapon(void);
+	virtual ~AWeapon(void) = 0;
 	string const	getName(void) const;
 	int				getAP(void) const;
 	int				getDamage(void) const;
