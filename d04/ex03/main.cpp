@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/04 19:41:54 by rvolovik          #+#    #+#             */
+/*   Created: 2017/06/07 21:42:39 by rvolovik          #+#    #+#             */
 /*   Updated: 2017/06/07 21:45:31 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "IMateriaSource.hpp"
+#include "ICharachter.hpp"
 #include "AMateria.hpp"
+#include "MateriaSource.hpp"
+#include "Charachter.hpp"
 
-AMateria::AMateria(const string &type) : _type(type), _xp(0) {
-}
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharachter* zaz = new Charachter("zaz");
+	AMateria* tmp;
 
-AMateria::AMateria(const AMateria &obj) : _type(obj.getType()), _xp(obj.getXP()) {
-}
-
-AMateria::~AMateria(void) {
-}
-
-string const	&AMateria::getType(void) const {
-	return _type;
-}
-
-unsigned int	AMateria::getXP(void) const {
-	return _xp;
-}
-
-void			AMateria::use(ICharachter &target) {
-	_xp += 10;
+	tmp = src->createMateria("ice");
+	zaz->equip(tmp);
+	tmp = src->createMateria("cure");
+	zaz->equip(tmp);
+	ICharachter* bob = new Charachter("bob");
+	zaz->use(0, *bob);
+	zaz->use(1, *bob);
+	delete bob;
+	delete zaz;
+	delete src;
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 19:38:11 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 19:43:08 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/07 21:46:32 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include "ICharachter.hpp"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
 	unsigned int		getXP(void) const; //Returns the Materia's XP
 
 	virtual AMateria*	clone(void) const = 0;
-	virtual void		use(ICharacter &target);
+	virtual void		use(ICharachter &target);
 };
 
 #endif

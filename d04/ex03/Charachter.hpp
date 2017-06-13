@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 22:13:36 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 23:03:46 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/07 21:16:02 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 
 # include <iostream>
 # include <string>
-# include "ICharacter.hpp"
+# include "ICharachter.hpp"
+# include "AMateria.hpp"
 
 # define CHSIZE	5
 
 using namespace std;
 
-class Character : public ICharacter {
+class Charachter : public ICharachter {
 private:
-	AMateria	_equipment[CHSIZE];
+	string			_name;
+	AMateria		_equipment[CHSIZE];
 public:
-	Character(void);
-	Character(const Character &obj);
-	~Character(void);
+	Charachter(string name);
+	Charachter(const Charachter &obj);
+	~Charachter(void);
 
-	void	equip(AMateria *m);
-	void	unequip(int idx);
-	void	use(int idx, ICharachter &target);
+	string const	&getName() const;
+	void			equip(AMateria *m);
+	void			unequip(int idx);
+	void			use(int idx, ICharachter &target);
 
-	Character	&operator=(const Character &obj);
+	Charachter		&operator=(const Charachter &obj);
 };
 
 #endif

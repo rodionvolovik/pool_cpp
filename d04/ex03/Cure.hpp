@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/04 19:48:54 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/04 20:02:25 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/07 21:46:20 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ public:
 	Cure(const Cure &obj);
 	~Cure(void);
 	AMateria	*clone(void) const;
-	void		use(ICharacter &target);
-	Cure		&Cure::operator=(const Cure &obj);
+	void		use(ICharachter &target);
+	Cure		&operator=(const Cure &obj);
 };
 
 #endif

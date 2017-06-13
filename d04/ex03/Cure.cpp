@@ -25,7 +25,7 @@ AMateria	*Cure::clone(void) const {
 	return new Cure("ice");
 }
 
-void		Cure::use(ICharacter &target) {
+void		Cure::use(ICharachter &target) {
 	AMateria::use(target);
 	cout << "* shoots an ice bolt at " << target.getName() << " *" << endl;
 }
