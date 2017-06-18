@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 21:46:46 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/13 22:13:06 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/17 19:06:43 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,30 @@
 
 class SpaceInvaders {
 private:
-	std::string	_name;
-	int			_size[2];
+	std::string	_type;
 	int			_velocity;
+	float		_cooX;
+	float		_cooY;
 	int			_hp;
-	int			_maxhp;
 
 public:
-	SpaceInvaders(std::string name);
+	SpaceInvaders(std::string type, int hp);
 	SpaceInvaders(const SpaceInvaders &rhs);
 	~SpaceInvaders(void);
 
+	std::string	getType(void) const;
+	int			getVelocity(void) const;
+	float		getCoordX(void) const;
+	float		getCoordY(void) const;
+	int			getHP(void) const;
+	void		getDamage(int amount);
+	void		setCoordX(float x);
+	void		setCoordY(float y);
+	void		setHP(int amount);
+
+	void		getInfo(void);
 };
 
 #endif
+
+//add operator overload and check copy constructor
