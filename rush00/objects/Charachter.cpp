@@ -18,7 +18,7 @@
 int	Charachter::_maxarmor = 100;
 int	Charachter::_maxhp = 100;
 
-Charachter::Charachter(void) : SpaceInvaders("player1", 100) {
+Charachter::Charachter(void) : SpaceInvaders("player1", 100, "img/speedship.bmp") {
 	_armor = BASE_ARMOR;
 	_weapon = NULL;
 	return ;

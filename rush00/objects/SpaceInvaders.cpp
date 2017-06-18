@@ -12,25 +12,14 @@
 
 #include "includes/SpaceInvaders.hpp"
 
-SpaceInvaders::SpaceInvaders(std::string type, int hp) : _type(type), _hp(hp) {
-	_velocity = 0;
-	_cooX = 0.0;
-	_cooY = 0.0;
-	return ;
-}
-
-SpaceInvaders::SpaceInvaders(const SpaceInvaders &rhs) {
-	if (this != &rhs) {
-		_type = rhs.getType();
-		_velocity = rhs.getVelocity();
-		_cooX = rhs.getCoordX();
-		_cooY = rhs.getCoordY();
-		_hp = rhs.getHP();
-	}
+SpaceInvaders::SpaceInvaders(std::string type, int hp, const char *path) : _type(type), _hp(hp) {
+	_velocity = VELOCITY;
+	initSprite(path);
 	return ;
 }
 
 SpaceInvaders::~SpaceInvaders(void) {
+	SDL_FreeSurface(_sprite);
 	return ;
 }
 
@@ -42,12 +31,12 @@ int			SpaceInvaders::getVelocity(void) const {
 	return _velocity;
 }
 
-float		SpaceInvaders::getCoordX(void) const {
-	return _cooX;
+int			SpaceInvaders::getCoordX(void) const {
+	return _rcSprite.x;
 }
 
-float		SpaceInvaders::getCoordY(void) const {
-	return _cooY;
+int			SpaceInvaders::getCoordY(void) const {
+	return _rcSprite.y;
 }
 
 int			SpaceInvaders::getHP(void) const {
@@ -59,24 +48,42 @@ void		SpaceInvaders::getDamage(int amount) {
 		_hp = 0;
 }
 
-void		SpaceInvaders::setCoordX(float x) {
-	_cooX = x;
-}
-
-void		SpaceInvaders::setCoordY(float y) {
-	_cooY = y;
-}
-
 void		SpaceInvaders::getInfo(void) {
 	std::cout << "Unit info" << std::endl;
 	std::cout << "=== type: " << _type << std::endl;
 	std::cout << "=== velocity: " << _velocity << std::endl;
-	std::cout << "=== cooX: " << _cooX << std::endl;
-	std::cout << "=== cooY: " << _cooY << std::endl;
+	std::cout << "=== cooX: " << _rcSprite.x << std::endl;
+	std::cout << "=== cooY: " << _rcSprite.y << std::endl;
 	std::cout << "=== hp: " << _hp << std::endl;
 }
 
 void		SpaceInvaders::setHP(int amount) {
 	if ((_hp = amount) < 0)
 		_hp = 0;
+}
+
+void		SpaceInvaders::setRcSprite(int x, int y) {
+	_rcSprite.x = x;
+	_rcSprite.y = y;
+}
+
+void		SpaceInvaders::initSprite(const char *path) {
+	SDL_Surface	*temp;
+
+	temp = SDL_LoadBMP(path);
+	_sprite = SDL_DisplayFormat(temp);
+	SDL_FreeSurface(temp);
+}
+
+int			SpaceInvaders::getWidth(void) {
+	return _sprite->w;
+}
+
+
+int			SpaceInvaders::getHeight(void) {
+	return _sprite->h;
+}
+
+void		SpaceInvaders::performSprite(SDL_Surface *screen) {
+	SDL_BlitSurface(_sprite, NULL, screen, &_rcSprite);
 }

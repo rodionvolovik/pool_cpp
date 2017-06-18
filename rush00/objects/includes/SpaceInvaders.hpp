@@ -15,31 +15,36 @@
 
 # include <iostream>
 
-# define SIZEX	0
-# define SIZEY	1
+#include "SDL.h"
+
+# define SIZEX		0
+# define SIZEY		1
+# define VELOCITY	2;
 
 class SpaceInvaders {
 private:
 	std::string	_type;
 	int			_velocity;
-	float		_cooX;
-	float		_cooY;
 	int			_hp;
+	SDL_Rect	_rcSprite;
+	SDL_Surface	*_sprite;
 
 public:
-	SpaceInvaders(std::string type, int hp);
-	SpaceInvaders(const SpaceInvaders &rhs);
+	SpaceInvaders(std::string type, int hp, const char *path);
 	~SpaceInvaders(void);
 
 	std::string	getType(void) const;
 	int			getVelocity(void) const;
-	float		getCoordX(void) const;
-	float		getCoordY(void) const;
+	int			getCoordX(void) const;
+	int			getCoordY(void) const;
 	int			getHP(void) const;
 	void		getDamage(int amount);
-	void		setCoordX(float x);
-	void		setCoordY(float y);
 	void		setHP(int amount);
+	void		setRcSprite(int x, int y);
+	void		initSprite(const char *path);
+	int			getWidth(void);
+	int			getHeight(void);
+	void		performSprite(SDL_Surface *screen);
 
 	void		getInfo(void);
 };
