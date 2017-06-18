@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 21:46:46 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/17 19:06:43 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/19 01:51:55 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 
 #include "SDL.h"
 
-# define SIZEX		0
-# define SIZEY		1
-# define VELOCITY	2;
+# define VELOCITY	2.0;
 
 class SpaceInvaders {
 private:
