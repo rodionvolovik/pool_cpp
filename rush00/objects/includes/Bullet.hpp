@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Display.hpp                                        :+:      :+:    :+:   */
+/*   Bullet.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/19 01:44:32 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/19 01:44:42 by rvolovik         ###   ########.fr       */
+/*   Created: 2017/06/19 15:35:19 by rvolovik          #+#    #+#             */
+/*   Updated: 2017/06/19 16:02:18 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DISPLAY_HPP
-# define DISPLAY_HPP
+#ifndef BULLET_HPP
+# define BULLET_HPP
 
-# define SCREEN_WIDTH   1200
-# define SCREEN_HEIGHT  700
+# include "SDL.h"
+# include "SDL_image.h"
+# include "SpaceInvaders.hpp"
 
-#include "SDL.h"
+# define BULLET "bullet"
 
-class Display {
+class Bullet : public SpaceInvaders {
 private:
-    Charachter  *player;
+    bool    _alive;
 public:
-    Display(void);
-    ~Display(void);
-    void    play(void);
-    void    setPlayer(Charachter &rhs);
+    Bullet(int hp, int x, int y);
+    ~Bullet(void);
+    void    destroyBullet(void);
+    void    update(void);
+    void    fire(void);
+    void    draw(SDL_Surface *screen);
 };
 
 #endif

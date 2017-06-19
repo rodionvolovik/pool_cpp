@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./objects/includes
 
 SRC = objects/SpaceInvaders.cpp objects/Charachter.cpp objects/Weapon.cpp \
-	  main.cpp
+	  objects/Game.cpp objects/Bullet.cpp main.cpp
 
 LIBS = -lpthread -ldl
 

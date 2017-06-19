@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 21:46:48 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/17 19:06:53 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/19 15:52:45 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,8 @@ int			SpaceInvaders::getHeight(void) {
 
 void		SpaceInvaders::performSprite(SDL_Surface *screen) {
 	SDL_BlitSurface(_sprite, NULL, screen, &_rcSprite);
+}
+
+void		SpaceInvaders::setVelocity(int velocity) {
+	_velocity = velocity;
 }

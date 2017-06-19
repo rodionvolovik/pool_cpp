@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 21:46:46 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/19 01:51:55 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/19 15:52:53 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ public:
 	int			getWidth(void);
 	int			getHeight(void);
 	void		performSprite(SDL_Surface *screen);
+	void		setVelocity(int velocity);
 
 	void		getInfo(void);
 };
