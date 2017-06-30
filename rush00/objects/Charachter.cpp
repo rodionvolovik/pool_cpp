@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 18:31:27 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/19 16:31:19 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/20 03:40:16 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	Charachter::_maxarmor = 100;
 int	Charachter::_maxhp = 100;
 
-Charachter::Charachter(void) : SpaceInvaders("player1", 100, "img/speedship.bmp") {
+Charachter::Charachter(void) : SpaceInvaders("player1", 100) {
 	_armor = BASE_ARMOR;
 	_weapon = new Weapon("laser", 20);
 	return ;
@@ -60,10 +60,6 @@ void	Charachter::restoreArmor(int amount) {
 		_armor = 100;
 }
 
-int		Charachter::attack(SDL_Surface *screen) {
-	return _weapon->shoot(getCoordX(), getCoordY(), screen);
-}
-
 void	Charachter::restoreHP(int amount) {
 	if (this->getHP() + amount > Charachter::_maxhp)
 		this->setHP(100);
@@ -77,8 +73,4 @@ void	Charachter::getInfo(void) {
 	} else {
 		std::cout << "=== weapon: " << _weapon->getType() << '\n';
 	}
-}
-
-void	Charachter::runBullets(SDL_Surface *screen) {
-	_weapon->update(screen);
 }

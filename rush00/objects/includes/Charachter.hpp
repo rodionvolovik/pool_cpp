@@ -6,7 +6,7 @@
 /*   By: rvolovik <rvolovik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 18:21:05 by rvolovik          #+#    #+#             */
-/*   Updated: 2017/06/19 16:25:19 by rvolovik         ###   ########.fr       */
+/*   Updated: 2017/06/20 03:37:51 by rvolovik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "SpaceInvaders.hpp"
 # include "Weapon.hpp"
-# include "Bullet.hpp"
 
 class Charachter : public SpaceInvaders {
 private:
@@ -32,10 +31,8 @@ public:
 	void		getDamage(int amount);
 	void		armOn(Weapon &rhs);
 	void		restoreArmor(int amount);
-	int			attack(SDL_Surface *screen);
 	void		restoreHP(int amount);
 	void		getInfo(void);
-	void		runBullets(SDL_Surface *screen);
 };
 
 #endif

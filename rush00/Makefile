@@ -4,19 +4,21 @@ CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -I./objects/includes
 
-SRC = objects/SpaceInvaders.cpp objects/Charachter.cpp objects/Weapon.cpp \
-	  objects/Game.cpp objects/Bullet.cpp main.cpp
+# SRC = objects/SpaceInvaders.cpp objects/Charachter.cpp objects/Weapon.cpp \
+# 	  main.cpp
+
+SRC = objects/Vizu.cpp main.cpp
 
 LIBS = -lpthread -ldl
 
-SDL = -I./SDL__/include/SDL
+SDL_LIB = -lSDL2 -Wl,-rpath=-I/usr/local/include
 
-LIBSDL = SDL__/lib64/libSDL.a SDL__/lib64/libSDLmain.a
+SDL_INCLUDE = -I/usr/local/include
 
 .phony: all re clean fclean
 
 all:
-	@ clang++ $(CFLAGS) $(INCLUDES) $(SRC) $(SDL) $(LIBS) $(LIBSDL) -o $(NAME)
+	@ clang++ $(CFLAGS) $(INCLUDES) $(SRC) $(SDL_LIB) $(SDL_INCLUDE) -o $(NAME)
 
 clean:
 
